@@ -1,0 +1,29 @@
+{
+  "name": "wind-notifier",
+  "version": "0.1.0",
+  "description": "Get IFTTT notification if there's wind coming up",
+  "main": "index.js",
+  "scripts": {
+    "start": "node index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/jeroentvb/wind-notifier.git"
+  },
+  "keywords": [
+    "wind",
+    "notification",
+    "ifttt"
+  ],
+  "author": "jeroentvb",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/jeroentvb/wind-notifier/issues"
+  },
+  "homepage": "https://github.com/jeroentvb/wind-notifier#readme",
+  "dependencies": {
+    "dotenv": "^7.0.0",
+    "node-fetch": "^2.3.0",
+    "wind-scrape": "github:jeroentvb/wind-scrape"
+  }
+}
