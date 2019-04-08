@@ -9,7 +9,8 @@ const ifttt = new IFTTT(process.env.MAKER_KEY);
     const windguru = await data.get(process.env.SPOT_NUMBER, [process.env.SPOT_MODELNUMBER])
     let notification = data.parse(windguru)
 
-    await ifttt.post('wind-update', notification)
+    const res = await ifttt.post('wind_update', notification)
+    console.log(res)
   } catch (err) {
     console.error(err)
   }
