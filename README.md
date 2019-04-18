@@ -30,6 +30,7 @@ Next, create a file named `.env` and add the following lines.
 MAKER_KEY=
 SPOT_NUMBER=
 SPOT_MODELNUMBER=
+WIND_THRESHOLD=
 ```
 
 ##### MAKER_KEY
@@ -41,6 +42,9 @@ Get the spot number from the url of the forecast for a spot. E.g. this is the ur
 ##### SPOT_MODELNUMBER
 This is the number of the model you want to use for the forecast. You can get these using the inspector in your browser. Or use 0 for the first model, 1 for the second, 2 for the third, e.t.c.  
 Example: If I want to use the ICON model for tarifa, the modelnumber would be 4.
+
+##### WIND_THRESHOLD
+Minimum windspeed (in kts) for at least 3 hours to trigger a notification.
 
 ### CRON
 Since this isn't a server but more of a script that should be run once to send a notification, you need to set up some sort of [cron](https://en.wikipedia.org/wiki/Cron) job to run this application at the desired time.
