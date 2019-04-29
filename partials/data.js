@@ -37,7 +37,7 @@ function parse (data) {
     }
 
     day.hours.forEach(hour => {
-      if (hour.windspeed >= process.env.WIND_THRESHOLD || 12) count++
+      if (hour.windspeed >= (process.env.WIND_THRESHOLD ? process.env.WIND_THRESHOLD : 12)) count++
 
       average.windspeed += hour.windspeed
       average.winddirection += hour.winddirection
