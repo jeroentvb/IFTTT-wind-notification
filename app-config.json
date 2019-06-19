@@ -1,0 +1,25 @@
+{
+  "spots": [
+    {
+      "name": "Schellinkhout",
+      "spotNumber": 46940,
+      "modelNumber": 6,
+      "directionMin": 180,
+      "directionMax": 315
+    },
+    {
+      "name": "Andijk",
+      "spotNumber": 46947,
+      "modelNumber": 6,
+      "directionMin": 315,
+      "directionMax": 23
+    },
+    {
+      "name": "Enkhuizen",
+      "spotNumber": 46944,
+      "modelNumber": 6,
+      "directionMin": 24,
+      "directionMax": 90
+    }
+  ]
+}
