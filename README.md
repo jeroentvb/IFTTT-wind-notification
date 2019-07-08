@@ -9,17 +9,17 @@ This application uses a scraper to scrape windguru.cz. This is **not** allowed b
 ## Table of contents
 * [Installation](#installation)
 * [Setup](#setup)
-+ [.env file](#env-file)
+* [.env file](#env-file)
     * [MAKER_KEY](#maker-key)
-+ [app-config.json](#app-configjson)
-  - [spots](#spots)
+* [app-config.json](#app-configjson)
+  * [spots](#spots)
     * [name](#name)
     * [spotNumber](#spotnumber)
     * [modelNumber](#modelnumber)
     * [directionMin & directionMax](#directionmin---directionmax)
-  - [windThreshold](#windthreshold)
-+ [IFTTT applet](#ifttt-applet)
-+ [CRON](#cron)
+  * [windThreshold](#windthreshold)
+* [IFTTT applet](#ifttt-applet)
+* [CRON](#cron)
 
 ## Installation
 Run the following commands in terminal.
