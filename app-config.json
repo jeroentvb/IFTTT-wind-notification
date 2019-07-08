@@ -21,5 +21,6 @@
       "directionMin": 24,
       "directionMax": 90
     }
-  ]
+  ],
+  "windThreshold": 14
 }

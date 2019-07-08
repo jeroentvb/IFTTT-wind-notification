@@ -1,5 +1,4 @@
-require('dotenv').config()
-
+const config = require('../app-config.json')
 const scrape = require('wind-scrape')
 const helper = require('./helper')
 
@@ -49,7 +48,7 @@ function checkWindspeedThreshold (days) {
     }
 
     day.data.hours.forEach(hour => {
-      if (hour.windspeed >= (parseInt(process.env.WIND_THRESHOLD) ? parseInt(process.env.WIND_THRESHOLD) : 12)) {
+      if (hour.windspeed >= (config.windThreshold ? config.windThreshold : 14)) {
         count++
 
         average.windspeed += hour.windspeed
@@ -94,8 +93,58 @@ function createNotification (data) {
   return notification
 }
 
+function getWinddirections (spotForecast) {
+  let forecast = []
+
+  spotForecast[0].models.days.forEach(day => {
+    forecast.push({
+      winddirection: helper.calcWinddirection(day.hours)
+    })
+  })
+
+  return forecast
+}
+
+function selectSpots (forecast) {
+  forecast.forEach((spotForecast, i) => {
+    config.spots.forEach((spot, j) => {
+      if (spot.directionMin > spot.directionMax) {
+        // Checking if the value is between e.g. 250 and 50
+
+        if ((spotForecast.winddirection > spot.directionMin && spotForecast.winddirection <= 360) || (spotForecast.winddirection < spot.directionMax && spotForecast.winddirection >= 0)) {
+          forecast[i].spot = spot.name
+        }
+      } else if (spotForecast.winddirection > spot.directionMin && spotForecast.winddirection < spot.directionMax) {
+        forecast[i].spot = spot.name
+      }
+    })
+  })
+
+  return forecast
+}
+
+function getForecast (selectedSpots, spotForecast) {
+  let forecastData = []
+
+  selectedSpots.forEach((day, i) => {
+    spotForecast.forEach(spotData => {
+      if (spotData.spot.includes(day.spot)) {
+        forecastData[i] = {
+          name: day.spot,
+          data: spotData.models.days[i]
+        }
+      }
+    })
+  })
+
+  return forecastData
+}
+
 module.exports = {
   get,
+  getWinddirections,
+  selectSpots,
+  getForecast,
   checkWindspeedThreshold,
   createNotification
 }
