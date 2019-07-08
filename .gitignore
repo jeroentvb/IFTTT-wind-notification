@@ -64,3 +64,4 @@ typings/
 *-export.json
 
 .DS_Store
+*.old

@@ -1,25 +1,18 @@
 {
   "spots": [
     {
-      "name": "Schellinkhout",
-      "spotNumber": 46940,
-      "modelNumber": 6,
-      "directionMin": 180,
+      "name": "Tarifa",
+      "spotNumber": 43,
+      "modelNumber": 4,
+      "directionMin": 90,
       "directionMax": 315
     },
     {
-      "name": "Andijk",
-      "spotNumber": 46947,
-      "modelNumber": 6,
-      "directionMin": 315,
-      "directionMax": 23
-    },
-    {
-      "name": "Enkhuizen",
-      "spotNumber": 46944,
-      "modelNumber": 6,
-      "directionMin": 24,
-      "directionMax": 90
+      "name": "Gulf of Roses",
+      "spotNumber": 551863,
+      "modelNumber": 4,
+      "directionMin": 45,
+      "directionMax": 135
     }
   ],
   "windThreshold": 14
