@@ -1,6 +1,6 @@
 {
   "name": "wind-notifier",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Get IFTTT notification if there's wind coming up",
   "main": "index.js",
   "scripts": {
