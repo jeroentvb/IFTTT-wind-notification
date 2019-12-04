@@ -2,7 +2,7 @@ require('dotenv').config()
 
 const config = require('./app-config.json')
 const data = require('./partials/data')
-const IFTTT = require('./partials/ifttt')
+const IFTTT = require('ifttt-webhooks-channel')
 const ifttt = new IFTTT(process.env.MAKER_KEY);
 
 (async function () {
