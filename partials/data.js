@@ -3,22 +3,20 @@ const scrape = require('wind-scrape')
 const helper = require('./helper')
 
 async function get (spots) {
-  return new Promise(async (resolve, reject) => {
-    try {
-      let forecastData = []
+  try {
+    const forecastData = []
 
-      await Promise.all(spots.map(async (spot) => {
-        const res = await scrape.windguru(spot.spotNumber, [spot.modelNumber])
-        const parsedRes = parse(res)
+    await Promise.all(spots.map(async (spot) => {
+      const res = await scrape.windguru(spot.spotNumber, [spot.modelNumber])
+      const parsedRes = parse(res)
 
-        forecastData.push(parsedRes)
-      }))
+      forecastData.push(parsedRes)
+    }))
 
-      resolve(forecastData)
-    } catch (err) {
-      reject(err)
-    }
-  })
+    return forecastData
+  } catch (err) {
+    throw new Error(err)
+  }
 }
 
 function parse (data) {
@@ -41,11 +39,11 @@ function parse (data) {
 
 function checkWindspeedThreshold (days) {
   const data = days.map(day => {
-    let count = 0
-    let average = {
+    const average = {
       windspeed: 0,
       winddirection: 0
     }
+    let count = 0
 
     day.data.hours.forEach(hour => {
       if (hour.windspeed >= (config.windThreshold ? config.windThreshold : 14)) {
@@ -94,7 +92,7 @@ function createNotification (data) {
 }
 
 function getWinddirections (spotForecast) {
-  let forecast = []
+  const forecast = []
 
   spotForecast[0].models.days.forEach(day => {
     forecast.push({
@@ -124,7 +122,7 @@ function selectSpots (forecast) {
 }
 
 function getForecast (selectedSpots, spotForecast) {
-  let forecastData = []
+  const forecastData = []
 
   selectedSpots.forEach((day, i) => {
     spotForecast.forEach(spotData => {

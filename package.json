@@ -23,8 +23,8 @@
   "homepage": "https://github.com/jeroentvb/wind-notifier#readme",
   "dependencies": {
     "dotenv": "^7.0.0",
-    "node-fetch": "^2.6.0",
-    "wind-scrape": "github:jeroentvb/wind-scrape"
+    "ifttt-webhooks-channel": "^1.1.0",
+    "wind-scrape": "https://github.com/jeroentvb/wind-scrape/releases/download/v2.0.0/dist.tgz"
   },
   "devDependencies": {
     "jeroentvb-helper": "github:jeroentvb/jeroentvb-helper"

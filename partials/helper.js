@@ -25,10 +25,9 @@ function getWindDirection (deg) {
 }
 
 function calcWinddirection (data) {
-  let winddirection = []
+  const winddirection = []
   let average = 0
   let count = 0
-  let averageWinddirection
 
   data.forEach(hour => {
     if (hour.windspeed >= (parseInt(process.env.WIND_THRESHOLD) ? parseInt(process.env.WIND_THRESHOLD) : 12)) {
@@ -47,9 +46,7 @@ function calcWinddirection (data) {
     })
   }
 
-  averageWinddirection = Math.round(average / winddirection.length)
-
-  return averageWinddirection
+  return Math.round(average / winddirection.length)
 }
 
 module.exports = {
