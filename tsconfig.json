@@ -70,6 +70,6 @@
   ],
   "exclude": [
     "node_modules",
-    "src/types/**/*"
+    "src/interfaces/**/*"
   ]
 }
