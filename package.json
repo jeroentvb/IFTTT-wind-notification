@@ -26,12 +26,12 @@
   "homepage": "https://github.com/jeroentvb/wind-notifier#readme",
   "dependencies": {
     "dotenv": "^7.0.0",
-    "ifttt-webhooks-channel": "^1.1.1",
+    "ifttt-webhooks-channel": "^1.1.4",
     "wind-scrape": "github:jeroentvb/wind-scrape#dist"
   },
   "devDependencies": {
-    "@types/node": "^13.9.0",
+    "@types/node": "^13.13.21",
     "jeroentvb-helper": "github:jeroentvb/jeroentvb-helper",
-    "typescript": "^3.8.3"
+    "typescript": "^3.9.7"
   }
 }
