@@ -1,0 +1,37 @@
+{
+  "spots": [
+    {
+      "number": 46940,
+      "model": "ICON 7 km",
+      "direction": {
+        "min": 180,
+        "max": 315
+      }
+    },
+    {
+      "number": 48274,
+      "model": "ICON 7 km",
+      "direction": {
+        "min": 315,
+        "max": 23
+      }
+    },
+    {
+      "number": 46944,
+      "model": "ICON 7 km",
+      "direction": {
+        "min": 24,
+        "max": 90
+      }
+    },
+    {
+      "number": 46944,
+      "model": "ICON 7 km",
+      "direction": {
+        "min": 91,
+        "max": 179
+      }
+    }
+  ],
+  "windThreshold": 14
+}

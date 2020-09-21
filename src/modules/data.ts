@@ -1,21 +1,21 @@
-const config = require('../app-config.json')
-const scrape = require('wind-scrape')
-const helper = require('./helper')
+import config from '../app-config.json'
+import scrape, { WindguruData } from 'wind-scrape'
+import helper from './helper'
 
-async function get (spots) {
+import { Spot } from '../types'
+
+async function get (spots: Spot[]): Promise<WindguruData[]> {
   try {
-    const forecastData = []
+    const forecastData: WindguruData[] = []
 
-    await Promise.all(spots.map(async (spot) => {
-      const res = await scrape.windguru(spot.spotNumber, [spot.modelNumber])
-      const parsedRes = parse(res)
-
-      forecastData.push(parsedRes)
+    await Promise.all(spots.map(async (spot: Spot) => {
+      const res = await scrape.windguru(spot.number)
+      forecastData.push(res)
     }))
 
     return forecastData
   } catch (err) {
-    throw new Error(err)
+    return err
   }
 }
 
@@ -138,7 +138,7 @@ function getForecast (selectedSpots, spotForecast) {
   return forecastData
 }
 
-module.exports = {
+export default {
   get,
   getWinddirections,
   selectSpots,

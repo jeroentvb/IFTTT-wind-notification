@@ -65,4 +65,4 @@ typings/
 
 .DS_Store
 *.old
-app-config.json
+dist/

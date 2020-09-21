@@ -1,9 +1,9 @@
 require('dotenv').config()
 
-const config = require('./app-config.json')
-const data = require('./partials/data')
-const IFTTT = require('ifttt-webhooks-channel')
-const ifttt = new IFTTT(process.env.MAKER_KEY);
+import config from './app-config.json';
+import data from './modules/data'
+import IFTTT from 'ifttt-webhooks-channel'
+const ifttt = new IFTTT(process.env.MAKER_KEY as string);
 
 (async function () {
   try {
@@ -22,3 +22,10 @@ const ifttt = new IFTTT(process.env.MAKER_KEY);
     console.error(err)
   }
 })()
+
+/* Steps */
+// Get data
+// Check if wind direction is sufficient
+// Check if windspeed is sufficient
+// Compose notification
+// Send notification
