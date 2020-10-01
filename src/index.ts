@@ -7,10 +7,11 @@ import Notification from './modules/notification'
 import IFTTT from 'ifttt-webhooks-channel'
 const ifttt = new IFTTT(process.env.MAKER_KEY as string)
 
+const notification = new Notification()
+
 const helper = require('jeroentvb-helper');
 
 (async function () {
-  const notification = new Notification()
   await checkSpot()
 })()
 
@@ -19,8 +20,9 @@ async function checkSpot (index = 0): Promise<void> {
     const spot = new Spot(config.spots[index], config.windThreshold, config.time)
     await spot.getForecast()
     spot.checkWind()
+    notification.add(spot)
 
-    console.log(spot.parsedForecast)
+    console.log(notification.messages)
 
     // const res = await ifttt.post('wind_update', /*notification*/)
     // console.log(res)

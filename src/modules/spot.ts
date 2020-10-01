@@ -82,9 +82,9 @@ export default class Spot {
     const { min, max } = this.spot.direction
 
     return hours.filter(hour => {
-      const winddirection = parseInt(hour.wdeg)
-      const betweenMinAnd360 = winddirection > min && winddirection <= 360
-      const betweenMaxAnd0 = winddirection < max && winddirection >= 0
+      const winddirection: number = parseInt(hour.wdeg)
+      const betweenMinAnd360: boolean = winddirection > min && winddirection <= 360
+      const betweenMaxAnd0: boolean = winddirection < max && winddirection >= 0
 
       if (min > max) {
         // Checking if the value is between e.g. 250 and 50
@@ -99,6 +99,9 @@ export default class Spot {
     })
   }
 
+  /**
+   * Filter hours in a day based on the given wind threshold
+   */
   private filterWindspeed (hours: WindguruModelHour[]): WindguruModelHour[] {
     return hours.filter(hour => parseInt(hour.wspd) >= this.windThreshold)
   }
